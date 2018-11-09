@@ -1,0 +1,13 @@
+
+type Query {
+    news: [News] 
+}
+
+type News {
+    id: Int
+    title: String
+    description: String
+    pubblicationData: String
+    image: String
+}
+
