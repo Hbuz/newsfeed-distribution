@@ -3,6 +3,7 @@ package com.mbas.csdmassignment;
 import com.mbas.csdmassignment.entities.Feed;
 import org.xml.sax.helpers.DefaultHandler;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -21,7 +22,7 @@ public class FeedParser extends DefaultHandler {
     static final String TITLE = "title";
     static final String DESCRIPTION = "description";
     static final String PUB_DATE = "pubDate";
-    static final String IMAGE = "image";
+    static final String ENCLOSURE = "enclosure";
 
     final URL url;
 
@@ -65,13 +66,13 @@ public class FeedParser extends DefaultHandler {
                             title = getCharacterData(event, eventReader);
                             break;
                         case DESCRIPTION:
-                            description = getCharacterData(event, eventReader);
+                            description = eventReader.getElementText();
                             break;
                         case PUB_DATE:
                             pubdate = getCharacterData(event, eventReader);
                             break;
-                        case IMAGE:
-                            image = getCharacterData(event, eventReader);
+                        case ENCLOSURE:
+                            image = event.asStartElement().getAttributeByName(new QName("url")).getValue();
                             break;
                     }
                 } else if (event.isEndElement()) {
@@ -79,7 +80,7 @@ public class FeedParser extends DefaultHandler {
                         feed = new Feed();
                         feed.setTitle(title);
                         feed.setDescription(description);
-                        feed.setPubDate(pubdate);
+                        feed.setPubdate(pubdate);
                         feed.setImage(image);
                         feedList.add(feed);
                         event = eventReader.nextEvent();

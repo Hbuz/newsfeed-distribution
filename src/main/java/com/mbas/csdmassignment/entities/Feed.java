@@ -13,7 +13,7 @@ public class Feed {
 
     private String description;
 
-    private String pubDate;
+    private String pubdate;
 
     private String image;
 
@@ -41,12 +41,12 @@ public class Feed {
         this.description = description;
     }
 
-    public String getPubDate() {
-        return pubDate;
+    public String getPubdate() {
+        return pubdate;
     }
 
-    public void setPubDate(String pubDate) {
-        this.pubDate = pubDate;
+    public void setPubdate(String pubDate) {
+        this.pubdate = pubDate;
     }
 
     public String getImage() {
@@ -60,6 +60,6 @@ public class Feed {
     @Override
     public String toString() {
         return "FeedMessage [title=" + title + ", description=" + description
-                + ", pubblication date=" + pubDate + ", author=" + image + "]";
+                + ", pubblication date=" + pubdate + ", image=" + image + "]";
     }
 }

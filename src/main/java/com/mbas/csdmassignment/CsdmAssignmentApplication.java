@@ -33,37 +33,43 @@ public class CsdmAssignmentApplication {
         long period = 1000L;
         timer.schedule(task, delay, period);*/
 
-        fetchNewsFeed();
+        List<Feed> feeds = fetchNewsFeed();
+        storeNews(feeds);
     }
 
 
-    public static void fetchNewsFeed(){
+    public static List<Feed> fetchNewsFeed() {
         FeedParser parser = new FeedParser(
-                "http://www.vogella.com/article.rss");
+                "http://feeds.nos.nl/nosjournaal");
         List<Feed> feedList = parser.readFeed();
-        for (Feed feed : feedList) {
-            System.out.println(feed);
+        return feedList;
+    }
+
+
+    public static void storeNews(List<Feed> feeds) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/newsfeed", "postgres", "secret")) {
+
+            System.out.println("Connected to PostgreSQL database!");
+            PreparedStatement st = null;
+            for(Feed feed: feeds) {
+                st = connection.prepareStatement("INSERT INTO public.feed (title, description, pubdate, image) VALUES (?, ?, ?, ?)");
+                st.setString(1, feed.getTitle());
+                st.setString(2, feed.getDescription());
+                st.setString(3, feed.getPubdate());
+                st.setString(4, feed.getImage());
+                st.executeUpdate();
+            }
+            st.close();
+
+//            Statement statement = connection.createStatement();
+//            statement.executeUpdate(
+//                    "INSERT INTO public.feed (title, description, pubDate, image) " +
+//                            "VALUES (feed.getTitle(), feed.getDescription(), feed.getPubDate(), feed.getImage())");
+        } catch (SQLException e) {
+            System.out.println("Connection failure.");
+            e.printStackTrace();
         }
     }
-
-
-//    public static void storeNews(){
-//        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "secret")) {
-//
-//            System.out.println("Connected to PostgreSQL database!");
-//            Statement statement = connection.createStatement();
-//            ResultSet resultSet = statement.executeQuery("SELECT * FROM public.appuser");
-//            while (resultSet.next()) {
-//                System.out.printf("Hey; "+ resultSet.getInt("id")+"  "+ resultSet.getString("login"));
-//            }
-//        } /*catch (ClassNotFoundException e) {
-//            System.out.println("PostgreSQL JDBC driver not found.");
-//            e.printStackTrace();
-//        }*/ catch (SQLException e) {
-//            System.out.println("Connection failure.");
-//            e.printStackTrace();
-//        }
-//    }
 
 
 }

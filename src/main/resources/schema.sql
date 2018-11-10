@@ -1,5 +1,6 @@
-CREATE TABLE IF NOT EXISTS feed( id serial PRIMARY KEY,
-  title VARCHAR(100) NOT NULL,
-  description VARCHAR (2000) NOT NULL,
-  pubDate VARCHAR (50) NOT NULL,
-  image VARCHAR (50) NOT NULL);
+CREATE TABLE IF NOT EXISTS feed(
+  id serial PRIMARY KEY,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  pubdate TEXT NOT NULL,
+  image TEXT NOT NULL);
