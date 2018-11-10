@@ -3,19 +3,23 @@ package com.mbas.csdmassignment.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="news")
-public class News {
+@Table(name="feed")
+public class Feed {
     @Id
-//    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
     private String title;
 
     private String description;
 
-    private String pubblicationData;
+    private String pubDate;
 
     private String image;
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public long getId() {
         return id;
@@ -37,12 +41,12 @@ public class News {
         this.description = description;
     }
 
-    public String getPubblicationData() {
-        return pubblicationData;
+    public String getPubDate() {
+        return pubDate;
     }
 
-    public void setPubblicationData(String pubblicationData) {
-        this.pubblicationData = pubblicationData;
+    public void setPubDate(String pubDate) {
+        this.pubDate = pubDate;
     }
 
     public String getImage() {
@@ -51,5 +55,11 @@ public class News {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "FeedMessage [title=" + title + ", description=" + description
+                + ", pubblication date=" + pubDate + ", author=" + image + "]";
     }
 }

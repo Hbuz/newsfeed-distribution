@@ -1,13 +1,13 @@
 
 type Query {
-    news: [News] 
+    feed: [Feed] 
 }
 
-type News {
+type Feed {
     id: Int
     title: String
     description: String
-    pubblicationData: String
+    pubDate: String
     image: String
 }
 

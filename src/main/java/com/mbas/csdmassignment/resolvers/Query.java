@@ -1,7 +1,7 @@
 package com.mbas.csdmassignment.resolvers;
 
-import com.mbas.csdmassignment.entities.News;
-import com.mbas.csdmassignment.repositories.NewsRepository;
+import com.mbas.csdmassignment.entities.Feed;
+import com.mbas.csdmassignment.repositories.FeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
@@ -11,10 +11,10 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 public class Query implements GraphQLQueryResolver {
 
     @Autowired
-    private final NewsRepository NewsRepository = null;
+    private final FeedRepository FeedRepository = null;
 
-    public Iterable<News> news() {
-        return NewsRepository.findAll();
+    public Iterable<Feed> feed() {
+        return FeedRepository.findAll();
     }
 
 }
