@@ -1,6 +1,6 @@
-package com.mbas.csdmassignment;
+package com.mbas.newsfeeddist;
 
-import com.mbas.csdmassignment.entities.Feed;
+import com.mbas.newsfeeddist.entities.Feed;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -64,7 +64,7 @@ public class Utils {
         try {
             Properties prop = new Properties();
             String propFileName = "application.properties";
-            inputStream = CsdmAssignmentApplication.class.getClassLoader().getResourceAsStream(propFileName);
+            inputStream = NewsFeedDistributionApplication.class.getClassLoader().getResourceAsStream(propFileName);
 
             if (inputStream != null) {
                 prop.load(inputStream);

@@ -1,17 +1,17 @@
-package com.mbas.csdmassignment;
+package com.mbas.newsfeeddist;
 
-import com.mbas.csdmassignment.entities.Feed;
+import com.mbas.newsfeeddist.entities.Feed;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.*;
 import java.util.*;
 
 @SpringBootApplication
-public class CsdmAssignmentApplication {
+public class NewsFeedDistributionApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(CsdmAssignmentApplication.class, args);
+        SpringApplication.run(NewsFeedDistributionApplication.class, args);
 
         TimerTask task = new TimerTask() {
             public void run() {

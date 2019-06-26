@@ -1,6 +1,6 @@
-package com.mbas.csdmassignment.parsers;
+package com.mbas.newsfeeddist.parsers;
 
-import com.mbas.csdmassignment.entities.Feed;
+import com.mbas.newsfeeddist.entities.Feed;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;

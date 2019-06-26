@@ -1,7 +1,7 @@
-package com.mbas.csdmassignment.resolvers;
+package com.mbas.newsfeeddist.resolvers;
 
-import com.mbas.csdmassignment.entities.Feed;
-import com.mbas.csdmassignment.repositories.FeedRepository;
+import com.mbas.newsfeeddist.entities.Feed;
+import com.mbas.newsfeeddist.repositories.FeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;

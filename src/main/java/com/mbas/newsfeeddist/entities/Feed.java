@@ -1,4 +1,4 @@
-package com.mbas.csdmassignment.entities;
+package com.mbas.newsfeeddist.entities;
 
 import javax.persistence.*;
 

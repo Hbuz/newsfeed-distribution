@@ -1,4 +1,4 @@
-package com.mbas.csdmassignment;
+package com.mbas.newsfeeddist;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

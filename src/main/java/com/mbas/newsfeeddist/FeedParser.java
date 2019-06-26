@@ -1,7 +1,7 @@
-package com.mbas.csdmassignment;
+package com.mbas.newsfeeddist;
 
-import com.mbas.csdmassignment.entities.Feed;
-import com.mbas.csdmassignment.parsers.XMLParser;
+import com.mbas.newsfeeddist.entities.Feed;
+import com.mbas.newsfeeddist.parsers.XMLParser;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.IOException;
